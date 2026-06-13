@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+
+const experience = [
+  {
+    role: 'Software Developer',
+    org: 'IBM',
+    period: 'Mar 2024 — Present',
+    detail:
+      'Build systems and infrastructure across endpoint software and cloud microservices — a production-grade multithreaded C++ agent, CI/CD automation, and containerized developer environments. Cut developer setup for a 50-microservice product from two weeks to under an hour, and migrated analytical workloads to Postgres / RedShift on OpenShift with significant storage and query-performance gains.',
+  },
+  {
+    role: 'Software Engineer',
+    org: 'Marwiz',
+    period: 'Jul 2023 — Feb 2024',
+    detail:
+      'Built a Flutter TV application that lifted user engagement ~20% and cut production cost ~20% by removing hardware dependencies. Added caching and background-cleanup mechanisms for faster startup and bounded, stable storage in production.',
+  },
+  {
+    role: 'Mobile Intern',
+    org: 'Toddle',
+    period: 'Jan 2023 — Jun 2023',
+    detail:
+      'Designed Fastlane and Xcode Cloud workflows to automate mobile build and release pipelines, and performed mobile VAPT testing — fixing vulnerabilities to strengthen the app’s security posture.',
+  },
+];
+
+const projects = [
+  {
+    name: 'Diamond Edge Detection',
+    blurb:
+      'A deep-learning edge-detection method built on the U-2-Net architecture. Recognized at a hackathon.',
+    href: 'https://github.com/NavraDhup/U-2-net',
+    tag: 'Deep Learning',
+  },
+];
+
+const skills = [
+  { label: 'Languages', items: ['C++17', 'C', 'Python', 'Go', 'Java 11/17', 'SQL', 'Shell'] },
+  { label: 'Systems & Debugging', items: ['WinDbg', 'gdb', 'ETW', 'crash-dump analysis', 'Win32 APIs', 'multithreading'] },
+  { label: 'Cloud & Infra', items: ['Docker', 'Kubernetes', 'OpenShift', 'CI/CD', 'GitHub Actions', 'Jenkins'] },
+  { label: 'Data & Databases', items: ['PostgreSQL', 'RedShift', 'SQL optimization', 'data processing'] },
+  { label: 'AI-assisted Engineering', items: ['LLM-assisted workflows', 'prompt & context engineering', 'agentic workflows', 'tool orchestration'] },
+];
+
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/Shah-Aayush' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/aayushtheapple' },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/aayushtheapple/' },
+  { label: 'Stack Overflow', href: 'https://stackoverflow.com/users/14343554/aayush-shah' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@aayushtheapple' },
+  { label: 'Email', href: 'mailto:aayushshah.career@gmail.com' },
+];
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Aayush Shah</h1>
+    <p class="lede">
+      Software engineer building reliable systems, infrastructure, and developer tooling.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="https://github.com/Shah-Aayush" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="reveal" id="about">
+    <div class="eyebrow">About</div>
+    <p style="color: var(--text-soft); font-size: 1.05rem; max-width: 60ch;">
+      I’m a software engineer at IBM, focused on build reliability, performance, and debugging across
+      C++ systems, cloud microservices, and databases. I like turning slow, fragile workflows into fast,
+      reproducible ones — and I’m currently going deep on machine learning to build at the intersection
+      of systems and AI.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section class="reveal" id="work">
+    <div class="eyebrow">Experience</div>
+    {experience.map((job) => (
+      <div class="row">
+        <h2>{job.role}</h2>
+        <span class="meta">{job.period}</span>
+        <span class="org">{job.org}</span>
+        <p class="detail">{job.detail}</p>
+      </div>
+    ))}
+  </section>
+
+  <!-- Projects -->
+  <section class="reveal" id="projects">
+    <div class="eyebrow">Selected Projects</div>
+    {projects.map((p) => (
+      <a class="card" href={p.href} target="_blank" rel="noopener">
+        <div class="top">
+          <h3>{p.name}</h3>
+          <span class="meta" style="color: var(--text-faint);">{p.tag}</span>
+        </div>
+        <p>{p.blurb}</p>
+        <span class="arrow">View on GitHub →</span>
+      </a>
+    ))}
+    <p style="margin-top: 18px; color: var(--text-faint); font-size: 15px;">
+      More on <a class="accent" href="https://github.com/Shah-Aayush" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="reveal" id="skills">
+    <div class="eyebrow">Skills</div>
+    {skills.map((g) => (
+      <div class="skillgroup">
+        <div class="label">{g.label}</div>
+        <div class="chips">
+          {g.items.map((s) => <span class="chip">{s}</span>)}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Education -->
+  <section class="reveal" id="education">
+    <div class="eyebrow">Education</div>
+    <div class="row">
+      <h2>B.Tech, Computer Science & Engineering</h2>
+      <span class="meta">2019 — 2023</span>
+      <span class="org">Nirma University · 8.1 GPA</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="reveal" id="contact">
+    <div class="eyebrow">Contact</div>
+    <p style="color: var(--text-soft); max-width: 50ch;">
+      Open to interesting problems in systems, infrastructure, and AI. The fastest way to reach me:
+    </p>
+    <div class="socials">
+      {socials.map((s) => (
+        <a href={s.href} target={s.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener">{s.label} ↗</a>
+      ))}
+    </div>
+  </section>
+</Base>
