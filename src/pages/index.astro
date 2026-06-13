@@ -56,28 +56,24 @@ const socials = [
 <Base>
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1 class="grad">Aayush Shah</h1>
-      <p class="lede">
-        Software engineer building reliable systems, infrastructure, and developer tooling.
-      </p>
-      <div class="cta">
-        <a class="btn primary" data-magnetic href="#contact">Get in touch</a>
-        <a class="btn" data-magnetic href="https://github.com/Shah-Aayush" target="_blank" rel="noopener">GitHub →</a>
-      </div>
-      <span class="scroll-hint"><span class="dot"></span> Scroll</span>
+    <h1>Aayush Shah</h1>
+    <p class="lede">
+      Software engineer building reliable systems, infrastructure, and developer tooling.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="https://github.com/Shah-Aayush" target="_blank" rel="noopener">GitHub →</a>
     </div>
   </section>
 
   <!-- About -->
   <section id="about">
-    <p class="section-head reveal-s">
-      I turn slow, fragile workflows into fast, reproducible ones.
-    </p>
-    <p class="reveal-s" style="color: var(--text-soft); font-size: 1.1rem; max-width: 56ch; margin-top: 16px;">
+    <div class="eyebrow reveal-s">About</div>
+    <p class="reveal-s" style="color: var(--text-soft); font-size: 1.05rem; max-width: 60ch;">
       I’m a software engineer at IBM, focused on build reliability, performance, and debugging across
-      C++ systems, cloud microservices, and databases — and I’m currently going deep on machine learning
-      to build at the intersection of systems and AI.
+      C++ systems, cloud microservices, and databases. I like turning slow, fragile workflows into fast,
+      reproducible ones — and I’m currently going deep on machine learning to build at the intersection
+      of systems and AI.
     </p>
   </section>
 
@@ -98,19 +94,14 @@ const socials = [
   <section id="projects">
     <div class="eyebrow reveal-s">Selected Projects</div>
     {projects.map((p) => (
-      <div class="tilt reveal-s">
-        <a class="card" data-tilt href={p.href} target="_blank" rel="noopener">
-          <span class="glare"></span>
-          <div class="inner">
-            <div class="top">
-              <h3>{p.name}</h3>
-              <span class="meta" style="color: var(--text-faint);">{p.tag}</span>
-            </div>
-            <p>{p.blurb}</p>
-            <span class="arrow">View on GitHub →</span>
-          </div>
-        </a>
-      </div>
+      <a class="card reveal-s" href={p.href} target="_blank" rel="noopener">
+        <div class="top">
+          <h3>{p.name}</h3>
+          <span class="meta" style="color: var(--text-faint);">{p.tag}</span>
+        </div>
+        <p>{p.blurb}</p>
+        <span class="arrow">View on GitHub →</span>
+      </a>
     ))}
     <p class="reveal-s" style="margin-top: 18px; color: var(--text-faint); font-size: 15px;">
       More on <a class="accent" href="https://github.com/Shah-Aayush" target="_blank" rel="noopener">GitHub</a>.
@@ -142,8 +133,8 @@ const socials = [
 
   <!-- Contact -->
   <section id="contact">
-    <p class="section-head reveal-s">Let’s build something.</p>
-    <p class="reveal-s" style="color: var(--text-soft); max-width: 48ch; margin-top: 12px;">
+    <div class="eyebrow reveal-s">Contact</div>
+    <p class="reveal-s" style="color: var(--text-soft); max-width: 50ch;">
       Open to interesting problems in systems, infrastructure, and AI. The fastest way to reach me:
     </p>
     <div class="socials reveal-s">

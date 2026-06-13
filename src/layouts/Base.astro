@@ -25,21 +25,14 @@ const { title = 'Aayush Shah — Software Engineer', description = 'Software eng
     />
   </head>
   <body>
-    <!-- Single calm hero glow -->
-    <div class="glow" aria-hidden="true"></div>
-
     <nav class="nav">
       <div class="wrap">
-        <div class="bar">
-          <div class="bar-inner">
-            <a href="/" class="brand">Aayush Shah</a>
-            <div class="links">
-              <a href="/#work">Work</a>
-              <a href="/#projects">Projects</a>
-              <a href="/blog">Writing</a>
-              <a href="/#contact">Contact</a>
-            </div>
-          </div>
+        <a href="/" class="brand">Aayush Shah</a>
+        <div class="links">
+          <a href="/#work">Work</a>
+          <a href="/#projects">Projects</a>
+          <a href="/blog">Writing</a>
+          <a href="/#contact">Contact</a>
         </div>
       </div>
     </nav>
@@ -53,43 +46,5 @@ const { title = 'Aayush Shah — Software Engineer', description = 'Software eng
         © {new Date().getFullYear()} Aayush Shah · Built with Astro
       </div>
     </footer>
-
-    <script>
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      // pointer-coarse (touch) → skip cursor-driven effects
-      const fine = window.matchMedia('(pointer: fine)').matches;
-
-      if (!reduce && fine) {
-        // Magnetic buttons — gently pull toward the cursor
-        document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((el) => {
-          const STR = 0.3;
-          el.addEventListener('pointermove', (e) => {
-            const r = el.getBoundingClientRect();
-            const x = e.clientX - r.left - r.width / 2;
-            const y = e.clientY - r.top - r.height / 2;
-            el.style.translate = `${x * STR}px ${y * STR}px`;
-          });
-          el.addEventListener('pointerleave', () => { el.style.translate = '0 0'; });
-        });
-
-        // Subtle 3D tilt + glare on cards
-        document.querySelectorAll<HTMLElement>('[data-tilt]').forEach((card) => {
-          const MAX = 6;
-          card.addEventListener('pointermove', (ev) => {
-            const r = card.getBoundingClientRect();
-            const px = (ev.clientX - r.left) / r.width;
-            const py = (ev.clientY - r.top) / r.height;
-            card.style.setProperty('--ry', `${(px - 0.5) * 2 * MAX}deg`);
-            card.style.setProperty('--rx', `${(0.5 - py) * 2 * MAX}deg`);
-            card.style.setProperty('--mx', `${px * 100}%`);
-            card.style.setProperty('--my', `${py * 100}%`);
-          });
-          card.addEventListener('pointerleave', () => {
-            card.style.setProperty('--rx', '0deg');
-            card.style.setProperty('--ry', '0deg');
-          });
-        });
-      }
-    </script>
   </body>
 </html>
